@@ -26,7 +26,6 @@ header {
   padding-right: 215px;
   margin-left: auto;
   margin-right: auto;
-  /* background-color: tomato; */
 }
 
 .flexbox {
@@ -38,33 +37,50 @@ header {
 /* Начало хедера */
 
 .logo {
+  margin-right: 85px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+
   font-family: "Raleway", sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 26px;
   line-height: 1.19;
   letter-spacing: 0.03em;
+
   color: var(--accent-color);
   text-decoration: none;
-  margin-right: 85px;
-  margin-top: 25px;
-  margin-bottom: 25px;
 }
 .logoword {
   color: #000000;
 }
 
 .navigation {
+  position: relative;
+  height: 80px;
+  padding: 0;
+  margin: 0;
+
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
   list-style-type: none;
-  padding: 0;
-  margin: 0;
 }
 
 .navigation-navigation {
   margin-right: auto;
+}
+
+.navigation-menu:nth-child(2)::after {
+  content: "";
+  position: absolute;
+  display: block;
+  bottom: 0;
+  height: 4px;
+  width: 78px;
+
+  background-color: var(--accent-color);
+  border-radius: 2px;
 }
 
 .navigation-menu:not(:last-child) {
@@ -74,6 +90,8 @@ header {
 .navigation-item {
   text-decoration: none;
   color: var(--dark-color);
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navigation-item:not(:last-child) {
@@ -115,6 +133,8 @@ nav ~ a.navigation-item {
 }
 
 .button {
+  padding: 6px 22px;
+
   font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 500;
@@ -124,9 +144,11 @@ nav ~ a.navigation-item {
   letter-spacing: 0.03em;
   background: #f5f4fa;
   border-radius: 4px;
+
   border: var(--white-color);
   color: var(--dark-color);
-  padding: 6px 22px;
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button:hover,
@@ -153,6 +175,17 @@ nav ~ a.navigation-item {
   border: 1px solid #eeeeee;
 }
 
+.client-item:hover,
+.client-item:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.client-item:hover .overlay,
+.client-item:focus .overlay {
+  transform: translatey(0);
+}
+
 .client-item:not(:nth-child(3n)) {
   margin-right: 30px;
 }
@@ -163,22 +196,61 @@ nav ~ a.navigation-item {
 }
 
 .client-title {
+  margin: 0;
+  margin-top: 20px;
+  margin-left: 24px;
+
   font-weight: bold;
   font-size: 18px;
   line-height: 36px;
   letter-spacing: 0.06em;
-  margin: 0;
-  margin-top: 20px;
-  margin-left: 24px;
 }
 
 .client-title-work {
-  font-size: 16px;
-  line-height: 1.875;
-  letter-spacing: 0.03em;
-  color: var(--gray-color);
   margin: 0;
   margin-left: 24px;
+
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.875;
+  letter-spacing: 0.03em;
+
+  color: var(--gray-color);
+}
+
+.overlay-box {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+
+  transform: translatey(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.overlay > p {
+  margin: 0;
+  padding-left: 24px;
+  padding-top: 63px;
+  padding-right: 24px;
+  padding-bottom: 63px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.55;
+  letter-spacing: 0.03em;
+
+  color: #ffffff;
 }
 
 /* Конец основной части */
@@ -195,16 +267,18 @@ footer {
 }
 
 .logo-footer {
+  margin: 0;
+  margin-top: 60px;
+  text-decoration: none;
+
   font-family: "Raleway", sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 26px;
   line-height: 1.19;
   letter-spacing: 0.03em;
+
   color: var(--accent-color);
-  text-decoration: none;
-  margin: 0;
-  margin-top: 60px;
 }
 
 .logoword-white {
@@ -212,18 +286,20 @@ footer {
 }
 
 .address {
+  margin: 0;
+  padding-left: 0px;
+  margin-top: 20px;
+  margin-right: 70px;
+  margin-bottom: 60px;
+
   list-style-type: none;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 1.714;
   letter-spacing: 0.03em;
+
   color: var(--white-color);
-  margin: 0;
-  padding-left: 0px;
-  margin-top: 20px;
-  margin-right: 70px;
-  margin-bottom: 60px;
 }
 
 .address-item {
@@ -251,12 +327,14 @@ footer {
   text-decoration: none;
   height: 44px;
   width: 44px;
-  background-color: rgba(255, 255, 255, 0.1);
 
   background-size: 20px;
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 50%;
+
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .invite-instagram {
@@ -281,14 +359,16 @@ footer {
 }
 
 .invite {
+  margin: 0;
+  margin-top: 72px;
+
   font-weight: bold;
   font-size: 14px;
   line-height: 1.143;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+
   color: var(--white-color);
-  margin: 0;
-  margin-top: 72px;
 }
 
 .invite:not(:last-child) {

@@ -26,7 +26,6 @@ header {
   padding-right: 215px;
   margin-left: auto;
   margin-right: auto;
-  /* background-color: tomato; */
 }
 
 .flexbox {
@@ -38,33 +37,50 @@ header {
 /* Начало хедера */
 
 .logo {
+  margin-right: 85px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+
   font-family: "Raleway", sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 26px;
   line-height: 1.19;
   letter-spacing: 0.03em;
+
   color: var(--accent-color);
   text-decoration: none;
-  margin-right: 85px;
-  margin-top: 25px;
-  margin-bottom: 25px;
 }
 .logoword {
   color: #000000;
 }
 
 .navigation {
+  position: relative;
+  height: 80px;
+  padding: 0;
+  margin: 0;
+
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
   list-style-type: none;
-  padding: 0;
-  margin: 0;
 }
 
 .navigation-navigation {
   margin-right: auto;
+}
+
+.navigation-menu:nth-child(1)::after {
+  content: "";
+  position: absolute;
+  display: block;
+  bottom: 0;
+  height: 4px;
+  width: 48px;
+
+  background-color: var(--accent-color);
+  border-radius: 2px;
 }
 
 .navigation-menu:not(:last-child) {
@@ -74,6 +90,8 @@ header {
 .navigation-item {
   text-decoration: none;
   color: var(--dark-color);
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navigation-item:not(:last-child) {
@@ -116,6 +134,8 @@ nav ~ a.navigation-item {
 }
 
 h1 {
+  margin: 0;
+
   font-style: normal;
   font-weight: 900;
   font-size: 44px;
@@ -123,11 +143,18 @@ h1 {
   text-align: center;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+
   color: var(--white-color);
-  margin: 0em;
 }
 
 .button {
+  width: 200px;
+  height: 50px;
+  padding: 10px 31px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+
   font-weight: bold;
   font-size: 16px;
   line-height: 1.87;
@@ -135,17 +162,14 @@ h1 {
   align-items: center;
   text-align: center;
   letter-spacing: 0.06em;
+
   color: var(--white-color);
   background: var(--accent-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   border: var(--white-color);
-  width: 200px;
-  height: 50px;
-  padding: 10px 31px;
-  margin-top: 30px;
-  margin-left: auto;
-  margin-right: auto;
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button:hover,
@@ -153,31 +177,75 @@ h1 {
   background: #188ce8;
 }
 
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 528px;
+  height: 581px;
+
+  background-color: #ffffff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.button-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  height: 30px;
+  width: 30px;
+
+  padding: 0;
+
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  background-color: #ffffff;
+  background-image: url(../images/close-black.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px;
+}
+
 .features {
-  list-style-type: none;
   margin: 0;
   padding-left: 0;
   margin-top: 95px;
+
+  list-style-type: none;
 }
 
 .features:not(:last-child) {
   margin-right: 30px;
 }
 
-/* .features-img { */
-/* width: 270px; */
-/* height: 120px; */
-/* background: #f5f4fa; */
-/* padding: 25px 100px; */
-/* } */
-
 .features-title {
   width: 270px;
+
   font-weight: bold;
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+
   color: var(--dark-color);
 }
 
@@ -210,23 +278,27 @@ h1 {
 }
 
 .features-content {
+  margin-top: 10px;
+
   font-weight: normal;
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
+
   color: var(--gray-color);
-  margin-top: 10px;
 }
 
 .wht-doing {
+  margin-top: 85px;
+  margin-bottom: 0px;
+
   font-weight: bold;
   font-size: 36px;
   line-height: 1.17;
   text-align: center;
   letter-spacing: 0.03em;
+
   color: var(--dark-color);
-  margin-top: 85px;
-  margin-bottom: 0px;
 }
 
 h2 {
@@ -235,10 +307,12 @@ h2 {
   line-height: 1.17;
   text-align: center;
   letter-spacing: 0.03em;
+
   color: var(--dark-color);
 }
 
 .working {
+  position: relative;
   list-style-type: none;
   padding-left: 0px;
   margin: 0;
@@ -255,18 +329,23 @@ h2 {
 }
 
 .working-title {
+  position: absolute;
+  bottom: 0;
+  height: 70px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   font-weight: bold;
   font-size: 14px;
   line-height: 1.14;
   text-align: center;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+
   color: var(--white-color);
   background: rgba(47, 48, 58, 0.8);
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .our-cmnd {
   margin-top: 94px;
@@ -277,14 +356,15 @@ h2 {
 }
 
 .our-cmnd-title {
+  margin: 0;
+
   font-weight: bold;
   font-size: 36px;
   line-height: 1.17;
   text-align: center;
   letter-spacing: 0.03em;
-  color: var(--dark-color);
 
-  margin: 0;
+  color: var(--dark-color);
 }
 
 .team-list,
@@ -314,24 +394,28 @@ h2 {
 }
 
 .employee {
+  margin-top: 30px;
+  padding-bottom: 0;
+
   font-weight: 500;
   font-size: 16px;
   line-height: 1.19;
   text-align: center;
   letter-spacing: 0.03em;
+
   color: var(--dark-color);
-  margin-top: 30px;
-  padding-bottom: 0;
 }
 
 .profession {
+  margin-top: 10px;
+
   font-weight: normal;
   font-size: 16px;
   line-height: 1.19;
   text-align: center;
   letter-spacing: 0.03em;
+
   color: var(--gray-color);
-  margin-top: 10px;
 }
 
 .social-book {
@@ -354,7 +438,9 @@ h2 {
   height: 44px;
   width: 44px;
   border-radius: 50%;
+
   color: #afb1b8;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-list:not(:last-child) {
@@ -407,6 +493,7 @@ h2 {
   color: #afb1b8;
   border: 1px solid #afb1b8;
   border-radius: 4px;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-link:hover,
@@ -466,16 +553,18 @@ footer {
 }
 
 .logo-footer {
+  margin: 0;
+  margin-top: 60px;
+  text-decoration: none;
+
   font-family: "Raleway", sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 26px;
   line-height: 1.19;
   letter-spacing: 0.03em;
+
   color: var(--accent-color);
-  text-decoration: none;
-  margin: 0;
-  margin-top: 60px;
 }
 
 .logoword-white {
@@ -483,18 +572,20 @@ footer {
 }
 
 .address {
+  margin: 0;
+  padding-left: 0px;
+  margin-top: 20px;
+  margin-right: 70px;
+  margin-bottom: 60px;
+
   list-style-type: none;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 1.714;
   letter-spacing: 0.03em;
+
   color: var(--white-color);
-  margin: 0;
-  padding-left: 0px;
-  margin-top: 20px;
-  margin-right: 70px;
-  margin-bottom: 60px;
 }
 
 .address-item {
@@ -522,12 +613,14 @@ footer {
   text-decoration: none;
   height: 44px;
   width: 44px;
-  background-color: rgba(255, 255, 255, 0.1);
 
   background-size: 20px;
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 50%;
+
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .invite-instagram {
@@ -552,14 +645,16 @@ footer {
 }
 
 .invite {
+  margin: 0;
+  margin-top: 72px;
+
   font-weight: bold;
   font-size: 14px;
   line-height: 1.143;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+
   color: var(--white-color);
-  margin: 0;
-  margin-top: 72px;
 }
 
 .invite:not(:last-child) {
